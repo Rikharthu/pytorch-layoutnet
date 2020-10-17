@@ -1,3 +1,11 @@
+# Notes on this Fork
+Adding support for perspective verion. 
+- [x] Add `model_persp.py` that has the complete model as in `https://github.com/zouchuhang/LayoutNet/blob/master/model_persp_joint_lsun_type.lua`.  
+- [x] Add t7 -> pth checkpoint transformation support for the perspective model in `torch2pytorch_pretrained_weight.py`. 
+- [ ] Rewrite the LSUN type postprocessing script `https://github.com/zouchuhang/LayoutNet/blob/master/matlab/getLSUNRes.m` in Python.
+
+
+------ 
 # pytorch-layoutnet
 
 **News: Check out my new project [HorizonNet](https://github.com/sunset1995/HorizonNet) on this task**
