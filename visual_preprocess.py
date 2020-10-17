@@ -54,16 +54,23 @@ for i_path in paths:
                                                     qError=args.q_error,
                                                     refineIter=args.refine_iter)
     panoEdge = (panoEdge > 0)
-    
+    import matplotlib.pyplot as plt
+    import ipdb as pdb; pdb.set_trace()
     # Align images with VP
-    i_img = rotatePanorama(img_ori / 255.0, vp[2::-1])
-    l_img = rotatePanorama(panoEdge.astype(np.float32), vp[2::-1])
+    i_img = img_ori/255.0
+    l_img = panoEdge.astype(np.float32)
+    #i_img = rotatePanorama(img_ori / 255.0, vp[2::-1])
+    #l_img = rotatePanorama(panoEdge.astype(np.float32), vp[2::-1])
 
     # Dump results
     basename = os.path.splitext(os.path.basename(i_path))[0]
     path_VP = os.path.join(args.output_dir, '%s_VP.txt' % basename)
     path_i_img = os.path.join(args.output_dir, '%s_aligned_rgb.png' % basename)
     path_l_img = os.path.join(args.output_dir, '%s_aligned_line.png' % basename)
+    #import ipdb as pdb; pdb.set_trace()
+    #plt.imsave(path_l_img, panoEdge.astype(np.float32))
+    #print('Saved to', path_l_img)
+    #exit(0)
 
     with open(path_VP, 'w') as f:
         for i in range(3):
