@@ -1,4 +1,5 @@
 import argparse
+# FIXME: this package doesn't seem to work on M1 cpu
 import torchfile
 import numpy as np
 

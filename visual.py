@@ -96,6 +96,7 @@ for i_path, l_path in zip(img_paths, line_paths):
     print('line path:', l_path)
     if args.perspective:        
         i_img = np.array(Image.open(i_path).resize((512, 512)), np.float32) / 255
+        # HWC -> CHW
         x_img = i_img.transpose([2, 0, 1])
         print('x_img shape:', x_img.shape)
     else:
@@ -127,6 +128,7 @@ for i_path, l_path in zip(img_paths, line_paths):
     import ipdb as pdb; pdb.set_trace()
 
     # Merge all results from augmentation
+    # NCHW -> NHWC
     edgmap = edg_img.transpose([0, 2, 3, 1]).mean(0).copy()
     cormap = cor_img.transpose([0, 2, 3, 1]).mean(0)[..., 0].copy()
    
